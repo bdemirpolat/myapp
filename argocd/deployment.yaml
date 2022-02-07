@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: kamalaklar/hello:c423ef79f209d8907d993c85ef39e020b6ff6694
+          image: kamalaklar/hello:9f35ce933791dc014c0f794a86959817431cb973
           ports:
             - containerPort: 3000
           envFrom:
