@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-deployment
+  name: myapp:17e89bf1ec2cec0d30a5eb2526c4fdcf0c5b3ba5
   labels:
-    app: myapp
+    app: myapp:17e89bf1ec2cec0d30a5eb2526c4fdcf0c5b3ba5
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myapp
+      app: myapp:17e89bf1ec2cec0d30a5eb2526c4fdcf0c5b3ba5
   template:
     metadata:
       labels:
-        app: myapp
+        app: myapp:17e89bf1ec2cec0d30a5eb2526c4fdcf0c5b3ba5
     spec:
       containers:
-        - name: myapp
-          image: kamalaklar/myapp:9f35ce933791dc014c0f794a86959817431cb973
+        - name: myapp:17e89bf1ec2cec0d30a5eb2526c4fdcf0c5b3ba5
+          image: kamalaklar/myapp:17e89bf1ec2cec0d30a5eb2526c4fdcf0c5b3ba5
           ports:
             - containerPort: 3000
           envFrom:
             - configMapRef:
-                name: myapp-configmap
+                name: myapp:17e89bf1ec2cec0d30a5eb2526c4fdcf0c5b3ba5
