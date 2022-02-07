@@ -22,7 +22,7 @@ jobs:
 
       - name: pwd---
         run: pwd
-        
+
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
@@ -30,7 +30,7 @@ jobs:
           tags: kamalaklar/hello:${{ github.sha }}
 
       - name: Change deployment.yaml and commit
-        run: perl -i -pe 's/{IMAGE_TEST}/${{ github.sha }}/g' argocd/deployment.yaml
+        run: perl -i -pe 's/{IMAGE_TEST}/${{ github.sha }}/g' ${GITHUB_WORKSPACE}/argocd/deployment.yaml
       
       - name: Commit and Push
-        run: git add argocd/deployment.yaml | git commit -m "change deployment.yaml" | git push origin master
+        run: cd ${GITHUB_WORKSPACE} | git add argocd/deployment.yaml | git commit -m "change deployment.yaml" | git push origin master
