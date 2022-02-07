@@ -29,9 +29,6 @@ jobs:
         with:
           push: true
           tags: kamalaklar/hello:${{ github.sha }}
-
-      - name: Change deployment.yaml and commit
-        run: perl -i -pe 's/{IMAGE_TEST}/${{ github.sha }}/g' ${GITHUB_WORKSPACE}/argocd/deployment.yaml
-      
+    
       - name: Commit and Push
-        run: cd ${GITHUB_WORKSPACE} | git add argocd/deployment.yaml | git commit -m "change deployment.yaml" | git push origin master
+        run: cd ${GITHUB_WORKSPACE} | perl -i -pe 's/{IMAGE_TEST}/${{ github.sha }}/g' ${GITHUB_WORKSPACE}/argocd/deployment.yaml | git add argocd/deployment.yaml | git commit -m "change deployment.yaml" | git push origin master
