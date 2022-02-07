@@ -26,7 +26,7 @@ jobs:
           tags: kamalaklar/hello:${{ github.sha }}
     
       - uses: actions/checkout@v2
-        run: |
+      - run: |
           perl -i -pe 's/{IMAGE_TEST}/${{ github.sha }}/g' ${GITHUB_WORKSPACE}/argocd/deployment.yaml
           git config user.name github-actions
           git config user.email github-actions@github.com
