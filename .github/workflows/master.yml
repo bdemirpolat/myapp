@@ -26,7 +26,6 @@ jobs:
           tags: kamalaklar/hello:${{ github.sha }}
     
       - uses: actions/checkout@v2
-        name: Commit and Push
         run: |
           perl -i -pe 's/{IMAGE_TEST}/${{ github.sha }}/g' ${GITHUB_WORKSPACE}/argocd/deployment.yaml
           git config user.name github-actions
