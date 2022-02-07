@@ -19,16 +19,18 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - uses: actions/checkout@v2
-      - name: ls
-        run: ls -al
-
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: kamalaklar/hello:${{ github.sha }}
     
-      - name: Commit and Push
-        run: cd ${GITHUB_WORKSPACE} | perl -i -pe 's/{IMAGE_TEST}/${{ github.sha }}/g' ${GITHUB_WORKSPACE}/argocd/deployment.yaml | git add argocd/deployment.yaml | git commit -m "change deployment.yaml" | git push origin master
+      - uses: actions/checkout@v2
+        name: Commit and Push
+        run: |
+          perl -i -pe 's/{IMAGE_TEST}/${{ github.sha }}/g' ${GITHUB_WORKSPACE}/argocd/deployment.yaml
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add argocd/deployment.yaml
+          git commit -m "generated"
+          git push
