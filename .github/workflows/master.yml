@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
-        
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
@@ -27,7 +27,6 @@ jobs:
           tags: kamalaklar/hello:${{ github.sha }}
 
       - name: Switch to staging cluster
-        run: kubectl config use-context staging
         uses: swdotcom/update-and-apply-kubernetes-configs@v1
         with:
           k8-config-file-paths: |
