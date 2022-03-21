@@ -4,3 +4,4 @@ metadata:
   name: myapp-configmap-test
 data:
   PORT: "30002"
+  BURAK: "TEST"
