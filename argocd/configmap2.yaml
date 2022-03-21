@@ -5,3 +5,4 @@ metadata:
 data:
   PORT: "30002"
   BURAK: "TEST"
+  MERT: "MET"
