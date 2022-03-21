@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: myapp-configmap-test
 data:
-  PORT: "3000"
+  PORT: "30002"
