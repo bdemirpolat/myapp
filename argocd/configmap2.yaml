@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: myapp-configmap-test
-data:
-  PORT: "30002"
-  BURAK: "TEST"
-  MERT: "MET"
