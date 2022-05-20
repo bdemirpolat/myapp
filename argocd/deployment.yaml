@@ -21,4 +21,4 @@ spec:
             - containerPort: 3000
           envFrom:
             - configMapRef:
-                name: myapp-configmap-test
+                name: myapp-configmap
