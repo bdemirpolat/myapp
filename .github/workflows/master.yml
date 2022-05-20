@@ -17,7 +17,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: kamalaklar/myapp:${{ github.sha }}
+          tags: bdemirpolat/myapp:${{ github.sha }}
       - uses: actions/checkout@v2
       - run: |
           perl -i -pe 's/myapp:.*/myapp:${{ github.sha }}/g' argocd/deployment.yaml
