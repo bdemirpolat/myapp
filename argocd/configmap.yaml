@@ -4,3 +4,4 @@ metadata:
   name: myapp-configmap
 data:
   PORT: "3000"
+  NEW: "TEST"
